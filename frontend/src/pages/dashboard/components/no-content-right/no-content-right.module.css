@@ -1,0 +1,7 @@
+.no__content--right {
+    grid-area: no-content-right;
+}
+
+.no__content--right {
+    background-color: blueviolet;
+}

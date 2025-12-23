@@ -1,0 +1,100 @@
+.navbar {
+    grid-area: navbar;
+}
+
+.header__start {
+    height: 52px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header__end {
+    margin-top: 8px;
+    height: 108px;
+}
+
+.header__end .header__end--add,
+.header__end .header__end--search,
+.header__end .header__end--image {
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__start {
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__end {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header__start button,
+.header__end button,
+.footer__start button {
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+}
+
+.footer__end button {
+    border: none;
+    background-color: transparent;
+    font-size: 24px;
+}
+
+.header__start button:hover,
+.header__end button:hover,
+.footer__start button:hover,
+.footer__end button:hover {
+    background-color: var(--color-line-space);
+    padding: 6px;
+    border-radius: 5px;
+}
+
+.header__start--gpt,
+.header__end--add,
+.header__end--search,
+.header__end--image,
+.footer__start--spackle,
+.footer__end--profile {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    left: 55px;
+    top: 5px;
+    white-space: nowrap;
+    padding: 7px 10px;
+    background-color: black;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 700;
+    font-size: 12px;
+}
+
+.header__end--add .tooltip,
+.header__end--search .tooltip,
+.header__end--image .tooltip {
+    left: 62px;
+}
+
+.footer__end .tooltip {
+    left: 58px;
+}

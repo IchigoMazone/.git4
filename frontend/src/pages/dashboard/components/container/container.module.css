@@ -1,0 +1,11 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 52px 1fr;
+    grid-template-columns: 52px 14px 1fr 14px;
+    grid-template-areas:
+        "navbar no-content-left header no-content-right"
+        "navbar no-content-left content no-content-right";
+    height: 100vh;
+}

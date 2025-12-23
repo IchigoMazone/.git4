@@ -1,0 +1,7 @@
+.header {
+    grid-area: header;
+}
+
+.header {
+    background-color: gray;
+}

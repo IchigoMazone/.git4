@@ -8,24 +8,24 @@ const cx = classNames.bind(styles);
 export default function DropDown({ actions, onClose, buttonRef }) {
     const wrapperRef = useRef(null);
 
-    useEffect(() => {
-        const handleClickOutSide = (event: MouseEvent) => {
-            if (
-                wrapperRef.current &&
-                !wrapperRef.current.contains(event.target as Node) &&
-                buttonRef.current &&
-                !buttonRef.current.contains(event.target as Node)
-            ) {
-                onClose();
-            }
-        };
+    // useEffect(() => {
+    //     const handleClickOutSide = (event: MouseEvent) => {
+    //         if (
+    //             wrapperRef.current &&
+    //             !wrapperRef.current.contains(event.target as Node) &&
+    //             buttonRef.current &&
+    //             !buttonRef.current.contains(event.target as Node)
+    //         ) {
+    //             onClose();
+    //         }
+    //     };
 
-        document.addEventListener("mousedown", handleClickOutSide);
+    //     document.addEventListener("mousedown", handleClickOutSide);
 
-        return () => {
-            document.removeEventListener("mousedown", handleClickOutSide);
-        };
-    }, [onClose, buttonRef]);
+    //     return () => {
+    //         document.removeEventListener("mousedown", handleClickOutSide);
+    //     };
+    // }, [onClose, buttonRef]);
 
     return (
         <div ref={wrapperRef} className={cx("dropDown")}>
