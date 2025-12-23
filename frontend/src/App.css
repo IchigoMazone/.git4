@@ -18,5 +18,9 @@
 body {
     font-size: 62.5%;
     font-family: "Inter", sans-serif;
-    /* background: linear-gradient(90deg, var(--color-start), var(--color-end)); */
 }
+
+*:focus {
+    outline: none;
+}
+

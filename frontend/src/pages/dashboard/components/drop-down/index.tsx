@@ -1,40 +1,20 @@
 import classNames from "classnames/bind";
 import styles from "./dropdown.module.css";
-import { useEffect, useRef, useState, type FormEvent } from "react";
-import { clearToken } from "../../../../utils/accessToken";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 const cx = classNames.bind(styles);
 
-interface Menu {
-    info: boolean,
-    add: boolean,
-    search: boolean,
-    setup: boolean,
-    help: boolean,
-    logout: boolean;
-}
-
-export default function DropDown({ onClose, buttonRef }) {
+export default function DropDown({ actions, onClose, buttonRef }) {
     const wrapperRef = useRef(null);
-    const navigate = useNavigate();
-    const [menu, setMenu] = useState<Menu>({
-        info: false,
-        add: false,
-        search: false,
-        setup: false,
-        help: false,
-        logout: false,
-    });
 
     useEffect(() => {
-        const handleClickOutSide = (e) => {
+        const handleClickOutSide = (event: MouseEvent) => {
             if (
                 wrapperRef.current &&
-                !wrapperRef.current.contains(e.target) &&
+                !wrapperRef.current.contains(event.target as Node) &&
                 buttonRef.current &&
-                !buttonRef.current.contains(e.target)
+                !buttonRef.current.contains(event.target as Node)
             ) {
                 onClose();
             }
@@ -47,25 +27,13 @@ export default function DropDown({ onClose, buttonRef }) {
         };
     }, [onClose, buttonRef]);
 
-    const handleLogout = async (event: FormEvent<HTMLFormElement>) => {
-        event.preventDefault();
-
-        try {
-            axios.post(
-                "http://localhost:5000/auth/logout",
-                {},
-                { withCredentials: true }
-            );
-        } finally {
-            clearToken();
-            navigate("/");
-        }
-    };
-
     return (
         <div ref={wrapperRef} className={cx("dropDown")}>
             <div className={cx("item__top")}>
-                <button onClick={() => console.log("ProFile")} className={cx("btn")}>
+                <button
+                    onClick={actions.profile}
+                    className={cx("btn")}
+                >
                     <div className={cx("wrapper__top")}>
                         <div className={cx("avatar")}>
                             <i className="far fa-frown"></i>
@@ -79,7 +47,10 @@ export default function DropDown({ onClose, buttonRef }) {
             </div>
             <hr className={cx("divider")} />
             <div className={cx("item")}>
-                <button onClick={() => console.log("Update")} className={cx("btn")}>
+                <button
+                    onClick={actions.update}
+                    className={cx("btn")}
+                >
                     <div className={cx("wrapper")}>
                         <i className="far fa-frown"></i>
                         <p>Nâng cấp gói</p>
@@ -87,7 +58,10 @@ export default function DropDown({ onClose, buttonRef }) {
                 </button>
             </div>
             <div className={cx("item")}>
-                <button onClick={() => console.log("Person")} className={cx("btn")}>
+                <button
+                    onClick={actions.person}
+                    className={cx("btn")}
+                >
                     <div className={cx("wrapper")}>
                         <i className="far fa-frown"></i>
                         <p>Cá nhân hóa</p>
@@ -95,7 +69,10 @@ export default function DropDown({ onClose, buttonRef }) {
                 </button>
             </div>
             <div className={cx("item")}>
-                <button onClick={() => console.log("Setup")} className={cx("btn")}>
+                <button
+                    onClick={actions.setup}
+                    className={cx("btn")}
+                >
                     <div className={cx("wrapper")}>
                         <i className="far fa-frown"></i>
                         <p>Cài đặt</p>
@@ -104,20 +81,23 @@ export default function DropDown({ onClose, buttonRef }) {
             </div>
             <hr className={cx("divider")} />
             <div className={cx("item")}>
-               <button onClick={() => console.log("Help")} className={cx("btn")}>
+                <button
+                    onClick={actions.help}
+                    className={cx("btn")}
+                >
                     <div className={cx("wrapper")}>
                         <i className="far fa-frown"></i>
                         <p>Trợ giúp</p>
                     </div>
-               </button>
+                </button>
             </div>
             <div className={cx("item")}>
-              <button onClick={() => console.log("Logout")} className={cx("btn")}>
+                <button onClick={actions.logout} className={cx("btn")}>
                     <div className={cx("wrapper")}>
                         <i className="far fa-frown"></i>
                         <p>Đăng xuất</p>
                     </div>
-              </button>
+                </button>
             </div>
         </div>
     );

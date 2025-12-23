@@ -63,7 +63,7 @@ const publicRoutes: RouteObject[] = [
                 element: <ResetPassword />,
                 errorElement: <NotFound />,
             },
-            { path: "/home", element: <Dashboard /> },
+            { path: "home", element: <Dashboard /> },
             { path: "*", element: <NotFound /> },
         ],
     },
