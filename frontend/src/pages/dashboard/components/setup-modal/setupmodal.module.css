@@ -304,6 +304,7 @@
 }
 
 .row__content--top .button__content {
+    background-color: #fff;
     width: 18px;
     height: 18px;
     border-radius: 50%;
@@ -429,7 +430,7 @@
 }
 
 .table__right .box .box__brands .icon_t {
-    color: #FF6201;
+    color: #ff6201;
 }
 
 .table__right .box .box__brands .box__brands--iy {
@@ -444,7 +445,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}   
+}
 
 .table__right .box .box__brands .box__brands--iz {
     width: 40px;
@@ -454,11 +455,11 @@
     position: absolute;
     right: 8px;
     z-index: 2;
-    background-color: #5661EA;
+    background-color: #5661ea;
     display: flex;
     justify-content: center;
     align-items: center;
-}   
+}
 
 .table__right .box .box__brands .box__brands--ix {
     width: 40px;
@@ -472,7 +473,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+}
 
 .table__right .box .box__brands .box__brands--it {
     width: 40px;
@@ -486,6 +487,384 @@
     display: flex;
     justify-content: center;
     align-items: center;
-} 
+}
 
+.table__right .setup .setup__box {
+    width: 100%;
+    height: 64px;
+    border: none;
+    background-color: transparent;
+    padding: 16px 0;
+    display: flex;
+    justify-content: space-between;
+}
 
+.table__right .setup .box__top {
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.table__right .setup .box__bottom {
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table__right .setup .box__top .box__top--icon {
+    padding: 6px;
+    border: 1px solid #f3f3f3;
+    border-radius: 50%;
+}
+
+.table__right .control {
+    height: 75px;
+    padding: 16px 0 4px;
+}
+
+.table__right .control .control__content {
+    font-size: 13px;
+    color: #8f8f8f;
+}
+
+.table__right .control__button {
+    font-size: 13px;
+    height: 44px;
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+}
+
+.table__right .control__button .button {
+    height: 36px;
+    border: none;
+    background-color: transparent;
+    padding: 0 15px;
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--color-line-modal);
+    border-radius: 20px;
+    font-weight: 600;
+    opacity: 0.7;
+    gap: 8px;
+}
+
+.table__right .header__left {
+    height: 52px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f3f3;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table__right .header__left .header__left--title {
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table__right .header__left .header__left--button {
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.table__right .header__mid {
+    height: 52px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f3f3;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table__right .header__mid .header__mid--title {
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table__right .header__mid .header__mid--button {
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table__right .header__mid .header__mid--button button {
+    border: none;
+    background-color: transparent;
+    padding: 0 15px;
+    height: 100%;
+    border-radius: 20px;
+    font-weight: 600;
+    opacity: 0.7;
+    border: 1px solid var(--color-line-modal);
+}
+
+.table__right .header__mid .header__mid--button .prev {
+    border: 1px solid #e9bab9;
+    opacity: 1;
+    color: #c23f3c;
+}
+
+.table__right .secure__key {
+    width: 100%;
+    height: 89px;
+    padding: 8px 0;
+    background-color: transparent;
+    border: none;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.table__right .secure__key .column__text {
+    font-size: 12px;
+}
+
+.table__right .secure__key .key__column {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.table__right .secure__key .key__column .column__text {
+    text-align: start;
+    color: #8f8f8f;
+}
+
+.table__right .secure__key .key__row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+}
+
+.table__right .secure__key .key__row .row__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table__right .secure__key .key__row .row__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.table__right .secure__mfa {
+    border-top: 1px solid #f3f3f3;
+    height: 42px;
+    padding: 10px 0 6px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.table__right .secure__application {
+    height: 61px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.table__right .secure__application .app__auth {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table__right .secure__application .auth__title {
+    height: 20px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table__right .secure__application .button {
+    width: 32px;
+    height: 20px;
+    background-color: #e3e3e3;
+    border-radius: 20px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+}
+
+.table__right .secure__application .button.on {
+    background-color: #0285ff;
+    justify-content: end;
+}
+
+.table__right .secure__application .button__content {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+    margin: 0 2px;
+}
+
+.table__right .secure__application .app__support {
+    height: 24px;
+    margin: 4px 0;
+    font-size: 12px;
+    color: #8f8f8f;
+}
+
+.table__right .secure__device {
+    height: 92px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.table__right .secure__device .secure__title {
+    font-size: 13px;
+    height: 20px;
+}
+
+.table__right .secure__device .secure__content {
+    height: 47px;
+    margin: 4px 0;
+    font-size: 12px;
+    color: #8f8f8f;
+}
+
+.table__right .secure__logout {
+    height: 60px;
+    padding: 8px 0;
+    border-bottom: 1px solid #f3f3f3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table__right .secure__logout .logout__title {
+    height: 36px;
+    font-size: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table__right .secure__logout .logout__button {
+    height: 36px;
+    border: none;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 12px;
+    border: 1px solid var(--color-line-modal);
+    border-radius: 20px;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.table__right .secure__out {
+    height: 108px;
+    padding: 8px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table__right .secure__out .secure__left--title {
+    height: 20px;
+    font-size: 13px;
+}
+
+.table__right .secure__out .secure__left--content {
+    height: 64px;
+    margin: 4px 0;
+    font-size: 12px;
+    color: #8f8f8f;
+}
+
+.table__right .secure__out .out__right {
+    height: 100%;
+}
+
+.table__right .secure__out .out__right .out__right--content {
+    height: 36px;
+    border: none;
+    padding: 0 12px;
+    background-color: transparent;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-weight: 600;
+    opacity: 0.7;
+}
+
+.table__right .secure__login {
+    height: 86px;
+    padding: 12px 0;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.table__right .secure__login .secure__login--left {
+    height: 28px;
+    font-size: 16px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+}
+
+.table__right .secure__login .secure__login--right {
+    height: 32px;
+    margin: 2px 0 0;
+    font-size: 12px;
+    color: #8f8f8f;
+}
+
+.table__right .secure__login .secure__login--right .prev {
+    text-decoration: underline;
+}
+
+.table__right .secure__banner {
+    height: 92px;
+    margin: 16px 0 16px;
+}
+
+.table__right .banner__content {
+    font-size: 13px;
+    color: #8f8f8f;
+    padding: 16px;
+    background-color: #F3F3F3;
+    border-radius: 10px;
+}
+
+.table__right {
+    overflow-x: auto;
+}
+
+.table__right::-webkit-scrollbar {
+    width: 10px;
+}
+
+.table__right::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.table__right::-webkit-scrollbar-thumb {
+    background: transparent;
+    border-radius: 5px;
+}
+
+/* .table__right::-webkit-scrollbar-thumb:hover {
+    background: #555;
+} */
