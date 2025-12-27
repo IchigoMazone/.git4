@@ -13,7 +13,7 @@ const publicRoutes: RouteObject[] = [
         path: "/",
         element: <App />,
         children: [
-            { index: true, element: <Login /> },
+            { index: true, element: <Dashboard /> },
 
             {
                 path: "forgot-password",

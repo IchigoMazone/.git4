@@ -5,7 +5,7 @@ import DropDown from "./components/drop-down";
 import ProfileModal from "./components/profile-modal";
 import SetupModal from "./components/setup-modal";
 import LogoutModal from "./components/logout-modal";
-
+import { useEffect } from "react";
 export default function Dashboard() {
     const { state, dispatch } = useEditor();
 
@@ -15,6 +15,18 @@ export default function Dashboard() {
             payload: { [key]: value },
         });
     };
+
+    // setState("SET_UTIL", "loading", true);
+
+    useEffect(() => {
+        setState("SET_UTIL", "loading", true);
+
+        const timer = setTimeout(() => {
+            setState("SET_UTIL", "loading", false);
+        }, 1000);
+
+        return () => clearTimeout(timer);
+    }, []);
 
     return (
         <>

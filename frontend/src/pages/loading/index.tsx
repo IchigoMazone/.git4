@@ -5,7 +5,7 @@ export default function Loading() {
         <>
             <div className="container">
                 <div className="loader"></div>
-                <div className="title">Đang đăng nhập...</div>
+                <div className="title">Nguz vcl thề...</div>
             </div>
         </>
     );

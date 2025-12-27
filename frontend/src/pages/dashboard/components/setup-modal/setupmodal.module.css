@@ -943,7 +943,6 @@
     justify-content: space-between;
 }
 
-
 .table__right .payment__account--left .account__left--title {
     font-size: 13px;
     display: flex;
@@ -954,7 +953,7 @@
     font-size: 12px;
     display: flex;
     align-items: center;
-    color: #2964AA;
+    color: #2964aa;
 }
 
 .table__right .payment__account .payment__account--right {
@@ -1036,13 +1035,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-}   
+}
 
 .table__right .icon__account .box__x .x__hidden,
 .table__right .icon__account .box__x .x__note {
     font-size: 11px;
     color: #8f8f8f;
-}   
+}
 
 .table__right .icon__account .box__x .x__hidden {
     visibility: hidden;
@@ -1074,7 +1073,6 @@
     border: 1px solid #e3e2e2;
     gap: 8px;
 }
-
 
 .table__right .note__account .note__account--title {
     font-size: 13px;
@@ -1113,7 +1111,7 @@
 
 .table__right .link__account .link__space .line {
     height: 1px;
-    background-color:  #f3f3f3;
+    background-color: #f3f3f3;
 }
 
 .table__right .link__account .link__link {
@@ -1191,7 +1189,7 @@
 
 .table__right .email__account .email__space .line {
     margin-top: 1px;
-    background-color:  #f3f3f3;
+    background-color: #f3f3f3;
     height: 1px;
 }
 
@@ -1226,5 +1224,329 @@
 
 .table__right .email__account .tick__email .tick__title {
     font-size: 13px;
-    margin-left: 2px;
+    margin-left: 1px;
+}
+
+.table__right .grid__box {
+    height: 305px;
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: 1fr 134px;
+    grid-template-rows: 33px 45px 5px 45px repeat(4, 33px);
+    grid-template-areas: 
+    "area__a area__b"
+    "area__c area__c"
+    "area__d area__d"
+    "area__e area__e"
+    "area__f area__g"
+    "area__h area__i"
+    "area__k area__l"
+    "area__m area__n";
+    gap: 6px;
+}
+
+.table__right .grid__box .area__a {
+    grid-area: "area__a";
+}
+
+.table__right .grid__box .area__a .area__a--content {
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.table__right .grid__box .area__b {
+    grid-area: area__b;
+    display: flex;
+    justify-content: end;
+}
+
+.table__right .grid__box .area__b .area__b--content,
+.table__right .grid__box .area__g .area__g--content,
+.table__right .grid__box .area__i .area__i--content,
+.table__right .grid__box .area__l .area__l--content,
+.table__right .grid__box .area__n .area__n--content {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background-color: transparent;
+    font-size: 13px;
+    padding: 0 12px;
+    border-radius: 8px;
+}
+
+.table__right .grid__box .area__c {
+    grid-area: area__c;
+}
+
+.table__right .grid__box .area__c .area__c--content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: var(--color-fz12);
+}
+
+.table__right .grid__box .area__c .area__c--content p {
+    margin: 0;
+}
+
+.table__right .grid__box .area__d {
+    grid-area: area__d;
+}
+
+.table__right .grid__box .area__e {
+    grid-area: area__e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.table__right .grid__box .area__e .area__e--title {
+    font-size: 13px;
+}
+
+.table__right .grid__box .area__e .area__e--content {
+    font-size: 12px;
+    color: var(--color-fz12);
+}
+
+.table__right .grid__box .area__e .area__e--content p {
+    margin: 0;
+}
+
+.table__right .grid__box .area__f {
+    grid-area: area__f;
+}
+
+.table__right .grid__box .area__f .area__f--content,
+.table__right .grid__box .area__h .area__h--content,
+.table__right .grid__box .area__k .area__k--content,
+.table__right .grid__box .area__m .area__m--content {
+    height: 100%;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.table__right .grid__box .area__g {
+    grid-area: area__g;
+    display: flex;
+    justify-content: end;
+}
+
+.table__right .grid__box .area__h {
+    grid-area: area__h;
+}
+
+.table__right .grid__box .area__i {
+    grid-area: area__i;
+    display: flex;
+    justify-content: end;
+}
+
+.table__right .grid__box .area__k {
+    grid-area: area__k;
+}
+
+.table__right .grid__box .area__l {
+    grid-area: area__l;
+    display: flex;
+    justify-content: end;
+}
+
+.table__right .grid__box .area__m {
+    grid-area: area__m;
+}
+
+.table__right .grid__box .area__n {
+    grid-area: area__n;
+    display: flex;
+    justify-content: end;
+}
+
+.table__right .grid__box .area__b .area__b--content:hover,
+.table__right .grid__box .area__g .area__g--content:hover,
+.table__right .grid__box .area__i .area__i--content:hover,
+.table__right .grid__box .area__l .area__l--content:hover,
+.table__right .grid__box .area__n .area__n--content:hover {
+    background-color: #F9F9F9;
+}
+
+.table__right .option {
+    height: 60px;
+    margin: 28px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 13px;
+}
+
+.table__right .option .option__input {
+    padding: 8px 12px;
+    color: var(--color-fz12);
+    outline: none;  
+    border: 1px solid var(--color-line);
+    border-radius: 5px;
+}
+
+.table__right .information {
+    height: 28px;
+    margin: 16px 0;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.table__right .line__x {
+    border: none;
+    border-top: 1px solid var(--color-line);
+}   
+
+.table__right .memory {
+    height: 28px;
+    margin: 18px 0 12px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table__right .memory .memory__left {
+    font-size: 16px;
+}
+
+.table__right .memory .memory__right {
+    border: none;
+    background-color: transparent;
+    padding: 0 12px;
+    border: 1px solid var(--color-line-modal);
+    height: 100%;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.table__right .memory__top {
+    height: 52px;
+    margin: 8px 0;
+    border-bottom: 1px solid var(--color-line);
+}
+
+.table__right .memory__top .memory__top--left {
+    height: 20px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table__right .memory__top .memory__top--left .title {
+    height: 100%;
+}
+
+.table__right .memory__top .memory__top--left .button {
+    height: 100%;
+    width: 32px;
+    padding: 0 2px;
+    background-color: #e3e3e3;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.table__right .memory__top .memory__top--left .title {
+    display: flex;
+    align-items: center;
+}
+
+.table__right .memory__top .memory__top--left .button .button__content {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.table__right .memory__top .memory__top--right {
+    height: 20px;
+    margin: 4px 0;
+    font-size: 12px;
+    display: flex;
+    color: var(--color-fz12);
+}
+
+.table__right .memory__bottom {
+    height: 32px;
+    margin: 16px 0 24px;
+    font-size: 12px;
+    color: var(--color-fz12);
+    padding: 0 55px 0 0;
+}
+
+.table__right .memory__bottom .content span {
+    text-decoration: underline;
+}
+
+.table__right .button__update {
+    height: 28px;
+    display: flex;
+    font-size: 16px;
+    margin: 16px 0;
+    border: none;
+    background-color: transparent;
+    gap: 8px;
+}
+
+.table__right .button__update .update__title, 
+.table__right .button__update .update__button {
+    display: flex;
+    align-items: center;
+}
+
+.table__right .memory__top--x {
+    height: 52px;
+    margin: 8px 0 24px;
+}
+
+.table__right .memory__top--x .memory__top--left {
+    height: 20px;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.table__right .memory__top--x .memory__top--left .title {
+    height: 100%;
+}
+
+.table__right .memory__top--x .memory__top--left .button {
+    height: 100%;
+    width: 32px;
+    padding: 0 2px;
+    background-color: #e3e3e3;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.table__right .memory__top--x .memory__top--left .title {
+    display: flex;
+    align-items: center;
+}
+
+.table__right .memory__top--x .memory__top--left .button .button__content {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.table__right .memory__top--x .memory__top--right {
+    height: 20px;
+    margin: 4px 0;
+    font-size: 12px;
+    display: flex;
+    color: var(--color-fz12);
 }
