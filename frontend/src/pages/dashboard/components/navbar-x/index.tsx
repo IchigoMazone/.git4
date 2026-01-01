@@ -3,6 +3,11 @@ import styles from "./navbar-x.module.css";
 import classNames from "classnames/bind";
 import { useState } from "react";
 
+interface T {
+    type: string | null;
+    value: number | string | null;
+}
+
 const cx = classNames.bind(styles);
 
 export default function Navbarx() {
@@ -13,10 +18,25 @@ export default function Navbarx() {
     const [openproject, setOpenProject] = useState<boolean>(false);
     const [opengroup, setOpenGroup] = useState<boolean>(false);
     const [openchat, setOpenChat] = useState<boolean>(false);
+    const [hoverIndex, setHoverIndex] = useState<null | boolean>(null);
+    const [hoverIndex2, setHoverIndex2] = useState<null | boolean>(null);
+    const [hoverIndex3, setHoverIndex3] = useState<null | boolean>(null);
+    const [active, setActive] = useState<T>({ type: null, value: null });
+    const [hoverX, setHoverX] = useState<T>({ type: null, value: null });
 
-    const listProject = ["Học tập", "Giải trí", "Chơi game", "Ôn thi"]
-    const listGroup = ["Xem Phim", "Đọc truyện", "Bắn súng", "Thi đấu"]
-    const listChat = ["Python", "JavaScript", "Dart", "Java"]
+    const listChat = ["Python", "JavaScript", "Dart", "Java"];
+
+    const list = [
+        {
+            type: "project",
+            items: ["Học tập", "Giải trí", "Chơi game", "Ôn thi"],
+        },
+        {
+            type: "group",
+            items: ["Xem phim", "Đọc truyện", "Bắn súng", "Thi đấu"],
+        },
+        { type: "chat", items: ["Python", "JavaScript", "Dart", "Java"] },
+    ];
 
     const setTooltip = (key: string, value: boolean) => {
         dispatch({
@@ -59,7 +79,10 @@ export default function Navbarx() {
                     </div>
                 </div>
                 <div className={cx("header__end")}>
-                    <div className={cx("header__end--add-x")}>
+                    <div
+                        onClick={() => console.log("Đoạn chat mới")}
+                        className={cx("header__end--add-x")}
+                    >
                         <div className={cx("header__end--add")}>
                             <button>
                                 <i className={cx("far", "fa-frown")}></i>
@@ -70,7 +93,10 @@ export default function Navbarx() {
                         </div>
                     </div>
 
-                    <div className={cx("header__end--search-x")}>
+                    <div
+                        onClick={() => console.log("Tìm kiếm đoạn chat")}
+                        className={cx("header__end--search-x")}
+                    >
                         <div className={cx("header__end--search")}>
                             <button>
                                 <i className={cx("far", "fa-frown")}></i>
@@ -81,7 +107,15 @@ export default function Navbarx() {
                         </div>
                     </div>
 
-                    <div className={cx("header__end--image-x")}>
+                    <div
+                        onClick={() => {
+                            setActive({ type: null, value: "image" });
+                            console.log("Ảnh");
+                        }}
+                        className={cx("header__end--image-x", {
+                            active: active.value === "image",
+                        })}
+                    >
                         <div className={cx("header__end--image")}>
                             <button>
                                 <i className={cx("far", "fa-frown")}></i>
@@ -94,7 +128,15 @@ export default function Navbarx() {
                 </div>
             </div>
             <div className={cx("content")}>
-                <button className={cx("application")}>
+                <button
+                    onClick={() => {
+                        setActive({ type: null, value: "application" });
+                        console.log("Ứng dụng");
+                    }}
+                    className={cx("application", {
+                        active: active.value === "application",
+                    })}
+                >
                     <div className={cx("icon")}>
                         <i className={cx("far", "fa-frown")}></i>
                     </div>
@@ -107,21 +149,79 @@ export default function Navbarx() {
                     className={cx("item")}
                 >
                     <div>Dự án</div>
-                    {project && (
-                        <div>
-                            <i className={cx("far", "fa-frown")}></i>
-                        </div>
-                    )}
+                    {project &&
+                        (openproject ? (
+                            <div>
+                                <i className={cx("fas", "fa-chevron-down")}></i>
+                            </div>
+                        ) : (
+                            <div>
+                                <i
+                                    className={cx("fas", "fa-chevron-right")}
+                                ></i>
+                            </div>
+                        ))}
                 </button>
                 {openproject && (
-                    <button className={cx("items")}>Dự án mới</button>
+                    <button
+                        onClick={() => console.log("Dự án mới")}
+                        className={cx("items")}
+                    >
+                        Dự án mới
+                    </button>
                 )}
                 {openproject &&
-                    listProject.map((value, index) => (
-                        <button className={cx("items")} key={index}>
-                            {value}
-                        </button>
-                    ))}
+                    list
+                        .find((item) => item.type === "project")
+                        ?.items.map((value, index) => (
+                            <div
+                                key={index}
+                                onClick={() => {
+                                    setActive({
+                                        type: "project",
+                                        value: index,
+                                    });
+                                    console.log(`project: ${value}`);
+                                }}
+                                className={cx("items", {
+                                    hoverX:
+                                        hoverX.type === "project" &&
+                                        hoverX.value === index,
+                                    active:
+                                        active.type === "project" &&
+                                        active.value === index,
+                                })}
+                                onMouseEnter={() => setHoverIndex(index)}
+                                onMouseLeave={() => setHoverIndex(null)}
+                            >
+                                <span>{value}</span>
+
+                                {hoverIndex === index && (
+                                    <span
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            console.log(
+                                                `Setup project: ${value}`
+                                            );
+                                        }}
+                                        onMouseEnter={() =>
+                                            setHoverX({
+                                                type: "project",
+                                                value: index,
+                                            })
+                                        }
+                                        onMouseLeave={() =>
+                                            setHoverX({
+                                                type: null,
+                                                value: null,
+                                            })
+                                        }
+                                    >
+                                        <i className="fa-solid fa-ellipsis"></i>
+                                    </span>
+                                )}
+                            </div>
+                        ))}
                 <button
                     onClick={() => setOpenGroup(!opengroup)}
                     onMouseEnter={() => setGroup(true)}
@@ -129,18 +229,68 @@ export default function Navbarx() {
                     className={cx("item")}
                 >
                     <div>Đoạn chat nhóm</div>
-                    {group && (
-                        <div>
-                            <i className={cx("far", "fa-frown")}></i>
-                        </div>
-                    )}
+                    {group &&
+                        (opengroup ? (
+                            <div>
+                                <i className={cx("fas", "fa-chevron-down")}></i>
+                            </div>
+                        ) : (
+                            <div>
+                                <i
+                                    className={cx("fas", "fa-chevron-right")}
+                                ></i>
+                            </div>
+                        ))}
                 </button>
                 {opengroup &&
-                    listGroup.map((value, index) => (
-                        <button className={cx("items")} key={index}>
-                            {value}
-                        </button>
-                    ))}
+                    list
+                        .find((item) => item.type === "group")
+                        ?.items.map((value, index) => (
+                            <div
+                                key={index}
+                                onClick={() => {
+                                    setActive({ type: "group", value: index });
+                                    console.log(`group: ${value}`);
+                                }}
+                                className={cx("items", {
+                                    hoverX:
+                                        hoverX.type === "group" &&
+                                        hoverX.value === index,
+                                    active:
+                                        active.type === "group" &&
+                                        active.value === index,
+                                })}
+                                onMouseEnter={() => setHoverIndex2(index)}
+                                onMouseLeave={() => setHoverIndex2(null)}
+                            >
+                                <span>{value}</span>
+
+                                {hoverIndex2 === index && (
+                                    <span
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            console.log(
+                                                `Setup group: ${value}`
+                                            );
+                                        }}
+                                        onMouseEnter={() =>
+                                            setHoverX({
+                                                type: "group",
+                                                value: index,
+                                            })
+                                        }
+                                        onMouseLeave={() =>
+                                            setHoverX({
+                                                type: null,
+                                                value: null,
+                                            })
+                                        }
+                                    >
+                                        <i className="fa-solid fa-ellipsis"></i>
+                                    </span>
+                                )}
+                            </div>
+                        ))}
                 <button
                     onClick={() => setOpenChat(!openchat)}
                     onMouseEnter={() => setChat(true)}
@@ -148,18 +298,66 @@ export default function Navbarx() {
                     className={cx("item")}
                 >
                     <div>Các đoạn chat của bạn</div>
-                    {chat && (
-                        <div>
-                            <i className={cx("far", "fa-frown")}></i>
-                        </div>
-                    )}
+                    {chat &&
+                        (openchat ? (
+                            <div>
+                                <i className={cx("fas", "fa-chevron-down")}></i>
+                            </div>
+                        ) : (
+                            <div>
+                                <i
+                                    className={cx("fas", "fa-chevron-right")}
+                                ></i>
+                            </div>
+                        ))}
                 </button>
                 {openchat &&
-                    listChat.map((value, index) => (
-                        <button className={cx("items")} key={index}>
-                            {value}
-                        </button>
-                    ))}
+                    list
+                        .find((item) => item.type === "chat")
+                        ?.items.map((value, index) => (
+                            <div
+                                key={index}
+                                onClick={() => {
+                                    setActive({ type: "chat", value: index });
+                                    console.log(`chat: ${value}`);
+                                }}
+                                className={cx("items", {
+                                    hoverX:
+                                        hoverX.type === "chat" &&
+                                        hoverX.value === index,
+                                    active:
+                                        active.type === "chat" &&
+                                        active.value === index,
+                                })}
+                                onMouseEnter={() => setHoverIndex3(index)}
+                                onMouseLeave={() => setHoverIndex3(null)}
+                            >
+                                <span>{value}</span>
+
+                                {hoverIndex3 === index && (
+                                    <span
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            console.log(`Setup chat: ${value}`);
+                                        }}
+                                        onMouseEnter={() =>
+                                            setHoverX({
+                                                type: "chat",
+                                                value: index,
+                                            })
+                                        }
+                                        onMouseLeave={() =>
+                                            setHoverX({
+                                                type: null,
+                                                value: null,
+                                            })
+                                        }
+                                    >
+                                        <i className="fa-solid fa-ellipsis"></i>
+                                    </span>
+                                )}
+                            </div>
+                        ))}
             </div>
             <div className={cx("footer")}>
                 <div className={cx("footer__end")}>
